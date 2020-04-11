@@ -1,0 +1,161 @@
+$small: 12px
+$radius: 5px
+$d: 0.2s
+
+$purple: #7A96CC
+$cyan: #7ACCCC
+$green: #80c000
+$orange: #FFAA00
+
+$white: white
+$black: black
+$silver: silver
+$gray: gray
+
+*
+	margin: 0
+	padding: 0
+
+body
+	font: 14px/20px "Clear Sans", Helvetica, Arial, sans-serif
+
+a
+	color: $cyan
+	text-decoration: none
+	transition: color $d
+
+img
+	display: block
+
+ul
+	list-style: none
+
+h1, h2, h3
+	font-weight: normal
+
+h1
+	font-size: 20px
+
+h2
+	font-size: 18px
+
+h3
+	font-size: 16px
+
+sup
+	font-size: $small - 2px
+	line-height: 0
+
+figure
+	figcaption
+		height: 5px
+		&:nth-child(1)
+			background-color: $orange
+		&:nth-child(2)
+			background-color: $green
+		&:nth-child(3)
+			background-color: $cyan
+		&:nth-child(4)
+			background-color: $purple
+
+article, aside
+	max-width: 480px
+	padding: 0 20px
+	margin: 0 auto
+
+section
+	padding-top: 15px
+	padding-bottom: 45px
+
+small
+	font-size: $small
+	color: $silver
+
+header
+	padding: 15px 0
+	a
+		color: $cyan
+
+footer
+	color: $silver
+	text-align: right
+	padding-top: 10px
+	line-height: 24px
+	a
+		color: $gray
+		&:hover
+			color: $black
+
+aside ul
+	li
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+	b, i
+		font-weight: normal
+		font-style: normal
+		display: block
+		float: left
+		width: 40px
+	b
+		color: $gray
+	i
+		color: $silver
+	sup
+		color: $silver
+		text-transform: uppercase
+	a
+		color: $black
+		&:hover
+			color: $cyan
+	h3
+		color: $gray
+		padding: 5px 0
+
+article
+	h4
+		padding: 5px 0
+		color: $purple
+	p
+		padding: 5px 0
+	img
+		width: 100%
+		height: auto
+		border-radius: $radius
+	ul, ol
+		padding: 5px 0
+		padding-left: 30px
+	ul
+		list-style: square
+	blockquote
+		padding-left: 30px
+		color: $gray
+	pre
+		background-color: whitesmoke
+		white-space: pre-wrap
+		padding: 10px 0
+		padding-left: 25px
+		border-left: $silver 5px solid
+		border-radius: $radius
+		margin: 5px 0
+		code
+			font: 13px/20px "Share Tech Mono", monospace
+			color: $gray
+
+@font-face
+	font-family: "Clear Sans"
+	font-style: normal
+	font-weight: normal
+	src: url(/static/clearsans/regular.woff) format('woff')
+
+@font-face
+	font-family: "Clear Sans"
+	font-style: normal
+	font-weight: bold
+	src: url(/static/clearsans/bold.woff) format('woff')
+
+@font-face
+	font-family: "Share Tech Mono"
+	font-style: normal
+	font-weight: normal
+	src: url(/static/sharetech/mono.woff) format('woff')
