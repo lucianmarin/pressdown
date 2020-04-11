@@ -1,4 +1,4 @@
-# pressdown
+# Pressdown
 PHP live blogging using Markdown and Jekyll posts
 
 ### Development setup
