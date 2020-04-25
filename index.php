@@ -5,22 +5,22 @@
 	$date = "today";
 ?>
 
-<? include 'include/header.php'; ?>
-<? include 'include/menu.php'; ?>
+<?php include 'include/header.php'; ?>
+<?php include 'include/menu.php'; ?>
 
 <section>
 	<aside>
 		<ul>
-		<? foreach ($keypaths as $path => $id): ?>
-			<? $post = parse_file($path); ?>
+		<?php foreach ($keypaths as $path => $id): ?>
+			<?php $post = parse_file($path); ?>
 			<li>
 				<a href="/post.php?id=<?= $id ?>">
 					<?= $post['title'] ?>
 				</a>
 			</li>
-		<? endforeach; ?>
+		<?php endforeach; ?>
 		</ul>
 	</aside>
 </section>
 
-<? include 'include/footer.php'; ?>
+<?php include 'include/footer.php'; ?>
