@@ -8,8 +8,8 @@
 	$date = $post['date'];
 ?>
 
-<? include 'include/header.php'; ?>
-<? include 'include/menu.php'; ?>
+<?php include 'include/header.php'; ?>
+<?php include 'include/menu.php'; ?>
 
 <section>
 	<article>
@@ -17,4 +17,4 @@
 	</article>
 </section>
 
-<? include 'include/footer.php'; ?>
+<?php include 'include/footer.php'; ?>
