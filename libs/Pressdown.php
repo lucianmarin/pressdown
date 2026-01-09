@@ -17,11 +17,11 @@
 		while (!feof($file)) {
 			$line = fgets($file);
 			if ($delimitators != 2) {
-				if ($line === "---\n") {
+				if (trim($line) === "---") {
 					$delimitators += 1;
 				} else {
-					$d = explode(":", $line, 2);
-					$post[trim($d[0])] = trim(trim($d[1]), '"');
+					list($var, $val) = explode(":", $line, 2);
+					$post[trim($var)] = trim(trim($val), '"');
 				}
 			} else {
 				$body .= $line;
