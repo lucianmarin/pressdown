@@ -1,5 +1,7 @@
 # Pressdown
 
+![screenshot](screenshot.png)
+
 A lightweight, flat-file blog engine written in PHP. Pressdown is designed to be simple, fast, and compatible with Jekyll-style Markdown posts.
 
 ## Features
