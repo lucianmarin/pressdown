@@ -13,7 +13,7 @@
 
 <section>
 	<article>
-		<?= $post['body'] ?>
+		<?php echo $post['body']; ?>
 	</article>
 </section>
 

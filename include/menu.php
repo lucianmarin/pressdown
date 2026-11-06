@@ -1,7 +1,7 @@
 <header>
 	<aside>
-		<small>Updated <?= $date ?></small>
-		<h1><a href="/"><?= $title ?></a></h1>
+		<small>Updated <?php echo $date; ?></small>
+		<h1><a href="/"><?php echo $title; ?></a></h1>
 	</aside>
 </header>
 

@@ -24,12 +24,12 @@ $date = "today";
 		krsort($posts_by_year); // Sort years descending
 		?>
 		<?php foreach ($posts_by_year as $year => $posts): ?>
-			<h3><?= $year ?></h3>
+			<h3><?php echo $year; ?></h3>
 			<ul>
 				<?php foreach ($posts as $item): ?>
 					<li>
-						<a href="/post.php?id=<?= $item['id'] ?>">
-							<?= $item['post']['title'] ?>
+						<a href="/post.php?id=<?php echo $item['id']; ?>">
+							<?php echo $item['post']['title']; ?>
 						</a>
 					</li>
 				<?php endforeach; ?>

@@ -27,7 +27,7 @@ A lightweight, flat-file blog engine written in PHP. Pressdown is designed to be
 
 ### Prerequisites
 
-- PHP 5.4 or higher (supports the built-in web server).
+- PHP 5.2 or higher.
 
 ### Installation
 
@@ -37,10 +37,11 @@ A lightweight, flat-file blog engine written in PHP. Pressdown is designed to be
    cd pressdown
    ```
 
-2. Start the development server:
+2. Start the development server (PHP 5.4+):
    ```bash
    php -S localhost:8000
    ```
+   On PHP 5.2/5.3, serve the project through a web server such as Apache or nginx.
 
 3. Open your browser and navigate to `http://localhost:8000`.
 

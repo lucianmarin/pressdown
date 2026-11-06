@@ -183,13 +183,15 @@ class Parsedown
                 continue;
             }
 
-            while (($beforeTab = strstr($line, "\t", true)) !== false)
+            while (($tabPos = strpos($line, "\t")) !== false)
             {
+                $beforeTab = substr($line, 0, $tabPos);
+
                 $shortage = 4 - mb_strlen($beforeTab, 'utf-8') % 4;
 
                 $line = $beforeTab
                     . str_repeat(' ', $shortage)
-                    . substr($line, strlen($beforeTab) + 1)
+                    . substr($line, $tabPos + 1)
                 ;
             }
 
@@ -571,7 +573,7 @@ class Parsedown
     #
     # List
 
-    protected function blockList($Line, ?array $CurrentBlock = null)
+    protected function blockList($Line, $CurrentBlock = null)
     {
         list($name, $pattern) = $Line['text'][0] <= '-' ? array('ul', '[*+-]') : array('ol', '[0-9]{1,9}+[.\)]');
 
@@ -590,7 +592,8 @@ class Parsedown
                 $matches[1] .= ' ';
             }
 
-            $markerWithoutWhitespace = strstr($matches[1], ' ', true);
+            $spacePos = strpos($matches[1], ' ');
+            $markerWithoutWhitespace = ($spacePos === false) ? false : substr($matches[1], 0, $spacePos);
 
             $Block = array(
                 'indent' => $Line['indent'],
@@ -609,7 +612,13 @@ class Parsedown
 
             if ($name === 'ol')
             {
-                $listStart = ltrim(strstr($matches[1], $Block['data']['markerType'], true), '0') ?: '0';
+                $markerPos = strpos($matches[1], $Block['data']['markerType']);
+                $beforeMarker = ($markerPos === false) ? '' : substr($matches[1], 0, $markerPos);
+                $listStart = ltrim($beforeMarker, '0');
+                if ($listStart === '')
+                {
+                    $listStart = '0';
+                }
 
                 if ($listStart !== '1')
                 {
@@ -808,7 +817,7 @@ class Parsedown
     #
     # Setext
 
-    protected function blockSetextHeader($Line, ?array $Block = null)
+    protected function blockSetextHeader($Line, $Block = null)
     {
         if ( ! isset($Block) or $Block['type'] !== 'Paragraph' or isset($Block['interrupted']))
         {
@@ -894,7 +903,7 @@ class Parsedown
     #
     # Table
 
-    protected function blockTable($Line, ?array $Block = null)
+    protected function blockTable($Line, $Block = null)
     {
         if ( ! isset($Block) or $Block['type'] !== 'Paragraph' or isset($Block['interrupted']))
         {
@@ -1943,7 +1952,7 @@ class Parsedown
             return self::$instances[$name];
         }
 
-        $instance = new static();
+        $instance = new Parsedown();
 
         self::$instances[$name] = $instance;
 

@@ -20,7 +20,11 @@
 				if (trim($line) === "---") {
 					$delimitators += 1;
 				} else {
-					list($var, $val) = explode(":", $line, 2);
+					$parts = explode(":", $line, 2);
+					if (count($parts) < 2) {
+						continue;
+					}
+					list($var, $val) = $parts;
 					$post[trim($var)] = trim(trim($val), '"');
 				}
 			} else {
